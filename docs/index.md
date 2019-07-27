@@ -57,7 +57,6 @@ You also need a Bus Pirate flashing utility. Grab that [here](https://storage.go
 
 ## Phase 2: Flashing the Bus Pirate
 
-The Dangerous Prototypes documentation for this is.....okay. But we'll go through it step by step.
 You need to "prep" the bootloader to be flashed but putting into a mode, and the way to do this is to open up a serial connection to your Bus Pirate.
 
 Run ```screen /dev/ttyUSB0 115200``` and change the port accordingly. That command opens a serial connection to the Bus Pirate using the documented Baud Rate. After a few seconds, a ```HiZ>``` prompt should show up. If it doesn't, press enter. Once you see the prompt, type "$". The Bus Pirate should respond with "BOOTLOADER". That means it's ready to be flashed. Go ahead and press Control+A and type ":quit". **DO NOT DISCONNECT THE BUS PIRATE**
@@ -184,3 +183,11 @@ This will take some time as you are directly flashing a new bootrom and full ima
 Once this is all done, go ahead and quit OpenOCD and Telnet, and disconnect the Bus Pirate and Proxmark.
 
 Plug in the Proxmark into the PC and run "dmesg". If you see the Proxmark being assigned a port, congradulations! You now have a working Proxmark again.
+
+# Troubleshooting
+
+
+# Sources/Thank-Yous
+https://twitter.com/nickinfosec?lang=en <--- Soldered the Pins onto the Proxmark and explained how to identify the Bus Pirate cables. Also is an all around cool guy.
+https://scund00r.com/all/rfid/2018/05/18/debrick-proxmark.html <---- I used the commands to flash the Proxmark after everything was set up from this guide.
+http://dangerousprototypes.com <---- General documentation for the Bus Pirate and how to add OpenOCD support.
