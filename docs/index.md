@@ -130,8 +130,11 @@ Now that everything is set up and ready to go, you now need to figure out what c
 
 ## The manual method
 
-This method will explain how to identify what pin on the Sparkfun Cable connects to what pin on the Bus Pirate.
+This method will explain how to identify what pin on the Sparkfun Cable connects to what pin on the Bus Pirate. Make sure the black rectangular part of the cable is plugged into the Bus Pirate.
 
+1. Take your multi-meter and touch one of the leads inside a wire on the cable. 
+2. Touch the other lead on one of the pins OUTSIDE the black rectangle on the Bus Pirate, next  too the description of each pin. 
+3.  This is an ordered list following a header.
 
 
 
@@ -145,8 +148,10 @@ If you're using the Sparkfun Cable, the pinout diagram is below. Please note thi
 |:-------------|:------------------|:------|
 | CS           | TMS | White  |
 | MOSI | TDI   | Grey  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
+| MISO         | TDO      | Black  |
+| CLK          | TCK | Purple  |
+| GND          | GND | Brown
+| 3V3          | 3V3 | Red
 
 
 ### Header 3
