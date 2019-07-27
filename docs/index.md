@@ -15,7 +15,7 @@ I put this together because the other guides for doing this are great, but skipp
 *   (OPTIONAL) A soldering kit, to solder the pin header onto the Proxmark. You don't actually **have** to solder it on, but it's going to make flashing the bootloader and full image a pain because you have to hold the pin header in place and keep it stable. It's _reallllllllllly_ tricky but technically doable.
 
 # Preparation
-## Phase 1: 
+## Phase 1: Bus Pirate Prep
 
 > This is a blockquote following a header.
 >
