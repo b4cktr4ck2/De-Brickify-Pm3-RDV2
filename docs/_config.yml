@@ -1,6 +1,6 @@
-title: De-Brickify A Proxmark3 with a Bus Pirate
+title: De-Brickify A Proxmark3 using a Bus Pirate
 logo: /assets/img/logo2.png
-description: A guide to get you going from zero to fully unbricked Proxmark3.
+description: A guide to get you going from zero to a fully unbricked Proxmark3.
 show_downloads: true
 google_analytics:
 theme: jekyll-theme-minimal
