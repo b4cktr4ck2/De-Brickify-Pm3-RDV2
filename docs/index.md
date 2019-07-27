@@ -2,7 +2,7 @@
 layout: default
 ---
 
-Text can be **bold**, _italic_, or ~~strikethrough~~.
+In this tutorial, we're going to go through the process of un-bricking a Proxmark3. I did this to an RDV2 that had bricked on me, but the steps can easily be modifed to work with a Pm3 Easy.
 
 [Link to another page](./another-page.html).
 
