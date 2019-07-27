@@ -50,7 +50,8 @@ Updates URL: http://dangerousprototypes.com
 ```
 
 If you don't see the Version Info, something's not right and you need to check your version script as well as assigned port.
-As long as your hardware matches mine, you're good. The firmware will need to be flashed with a special fork capable of supporting OpenOCD, which is how we'll be connecting the Bus Pirate to the Proxmark3. Download it from [here].(http://dangerousprototypes.com/forum/download/file.php?id=9188)
+
+The firmware will need to be flashed with a special fork capable of supporting OpenOCD, which is how we'll be connecting the Bus Pirate to the Proxmark3. Download it from [here](http://dangerousprototypes.com/forum/download/file.php?id=9188).
 
 You also need a Bus Pirate flashing utility. Grab that [here](https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/the-bus-pirate/BusPirate.firmware.v5.10.zip), extract it, and copy the hex file you downloaded in the previous link to the folder you just extracted.
 
