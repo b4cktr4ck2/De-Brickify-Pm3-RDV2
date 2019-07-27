@@ -120,6 +120,7 @@ That should be it on the Proxmark3 software side. You now need to figure out wha
 
 Grab your 6-pin header and insert it into the Proxmark. Here's what that should look like:
 ![PM3_Pins_1](./assets/img/Proxmark_Pins_1.jpg)
+![PM3_Pins_2](./assets/img/Proxmark_Pins_2.jpg)
 
 ### Header 3
 
