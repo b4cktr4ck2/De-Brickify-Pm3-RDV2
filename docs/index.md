@@ -124,6 +124,31 @@ Grab your 6-pin header and insert it into the Proxmark. Here's what that should 
 
 You should now be all set to connect the Bus Pirate to the Proxmark and begin the unbricking process!
 
+# Un-Bricking the Proxmark
+
+Now that everything is set up and ready to go, you now need to figure out what coloured wire on the Sparkfun Cable to connect to what pin on the Proxmark3. 
+
+## The manual method
+
+This method will explain how to identify what pin on the Sparkfun Cable connects to what pin on the Bus Pirate.
+
+
+
+
+
+## The quick method
+
+If you're using the Sparkfun Cable, the pinout diagram is below. Please note this may not be consistent with your cable:
+
+
+| Bus Pirate Pin        | Proxmark3 Pin          | Colour |
+|:-------------|:------------------|:------|
+| CS           | TMS | White  |
+| MOSI | TDI   | Grey  |
+| ok           | good `oreos`      | hmm   |
+| ok           | good `zoute` drop | yumm  |
+
+
 ### Header 3
 
 ```js
