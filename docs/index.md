@@ -25,7 +25,9 @@ Next, we're going to run a diagnostic script to identify what firmware version y
 Run ```wget https://raw.githubusercontent.com/DangerousPrototypes/Bus_Pirate/master/scripts/version.pl```, and then open it up in your favourite text editor.
 
 Since we're in a Linux distro, navigate to the following chunk of code and replace it to look like below:
-```# Set up the serial port for Windows
+
+```
+# Set up the serial port for Windows
 #use Win32::SerialPort;
 #my $port = Win32::SerialPort->new($mysport); #change to your com port
 #setup serial port for Linux
@@ -35,6 +37,7 @@ my $port = Device::SerialPort->new("/dev/ttyUSB0"); #change to your com port
 In your case, you'd replace that port with whatever port your distro assigns to the Bus Pirate.
 
 Run ```perl version.pl```. You should see something close to the following:
+
 ```
 Getting version string.
 Entering binmode: OK.
@@ -45,6 +48,7 @@ Firmware: Firmware v5.10 (r559)  Bootloader v4.4
 PIC chip: DEVID:0x0447 REVID:0x3046 (24FJ64GA002 B8)
 Updates URL: http://dangerousprototypes.com
 ```
+
 If you don't see the Version Info, something's not right and you need to check your version script as well as assigned port.
 As long as your hardware matches mine, you're good. The firmware will need to be flashed with a special fork capable of supporting OpenOCD, which is how we'll be connecting the Bus Pirate to the Proxmark3. Download it from [here].(http://dangerousprototypes.com/forum/download/file.php?id=9188)
 
