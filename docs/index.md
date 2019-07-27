@@ -13,6 +13,7 @@ I put this together because the other guides for doing this are great, but skipp
 *   A pin header to connect the Proxmark and Bus Pirate cable. I recommend you buy a breakable curved pin header, that way you can break it into 6-pin chunks, as that's how long the pin header must be.
 *   A multimeter, to test continuity and identify what cable to plug into which pin on the Proxmark.
 *   (OPTIONAL) A soldering kit, to solder the pin header onto the Proxmark. You don't actually **have** to solder it on, but it's going to make flashing the bootloader and full image a pain because you have to hold the pin header in place and keep it stable. It's _reallllllllllly_ tricky but technically doable.
+*   A Linux distro, preferable Debian Based. I did this on Parrot OS.
 
 # Preparation
 ## Phase 1: Bus Pirate Prep
@@ -20,8 +21,17 @@ I put this together because the other guides for doing this are great, but skipp
 Hook up that Bus Pirate to your computer. Run "sudo dmesg" to check what port it's on (Mine usually went to /dev/ttyUSB0). If your computer can see the Bus Pirate and assign it to a port, you're in good shape. 
 
 Next, we're going to run a diagnostic script to identify what firmware version you're working on. 
-Run ```wget https://raw.githubusercontent.com/DangerousPrototypes/Bus_Pirate/master/scripts/version.pl```
 
+Run ```wget https://raw.githubusercontent.com/DangerousPrototypes/Bus_Pirate/master/scripts/version.pl```, and then open it up in your favourite text editor.
+
+Since we're in a Linux distro, navigate to the following chunk of code and replace it to look like below:
+```# Set up the serial port for Windows
+#use Win32::SerialPort;
+#my $port = Win32::SerialPort->new($mysport); #change to your com port
+#setup serial port for Linux
+use Device::SerialPort;
+my $port = Device::SerialPort->new("/dev/ttyUSB0"); #change to your com port
+```
 
 ### Header 3
 
