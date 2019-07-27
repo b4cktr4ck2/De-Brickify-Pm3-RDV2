@@ -122,6 +122,8 @@ Grab your 6-pin header and insert it into the Proxmark. Here's what that should 
 ![PM3_Pins_1](./assets/img/Proxmark_Pins_1.jpg)
 ![PM3_Pins_2](./assets/img/Proxmark_Pins_2.jpg)
 
+You should now be all set to connect the Bus Pirate to the Proxmark and begin the unbricking process!
+
 ### Header 3
 
 ```js
