@@ -32,6 +32,33 @@ Since we're in a Linux distro, navigate to the following chunk of code and repla
 use Device::SerialPort;
 my $port = Device::SerialPort->new("/dev/ttyUSB0"); #change to your com port
 ```
+In your case, you'd replace that port with whatever port your distro assigns to the Bus Pirate.
+
+Run ```perl version.pl```. You should see something close to the following:
+```
+Getting version string.
+Entering binmode: OK.
+Exiting binmode: OK.
+Version info:
+Hardware: Bus Pirate v3b
+Firmware: Firmware v5.10 (r559)  Bootloader v4.4
+PIC chip: DEVID:0x0447 REVID:0x3046 (24FJ64GA002 B8)
+Updates URL: http://dangerousprototypes.com
+```
+If you don't see the Version Info, something's not right and you need to check your version script as well as assigned port.
+As long as your hardware matches mine, you're good. The firmware will need to be flashed with a special fork capable of supporting OpenOCD, which is how we'll be connecting the Bus Pirate to the Proxmark3. Download it from [here].(http://dangerousprototypes.com/forum/download/file.php?id=9188)
+
+You also need a Bus Pirate flashing utility. Grab that [here](https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/the-bus-pirate/BusPirate.firmware.v5.10.zip), extract it, and copy the hex file you downloaded in the previous link to the folder you just extracted.
+
+## Phase 2: Flashing the Bus Pirate
+
+The Dangerous Prototypes documentation for this is.....okay. But we'll go through it step by step.
+You need to "prep" the bootloader to be flashed but putting into a mode, and the way to do this is to open up a serial connection to your Bus Pirate.
+
+Run ```screen /dev/ttyUSB0 115200``` and change the port accordingly. After a few seconds, a ```HiZ>``` prompt should show up. If it doesn't, press enter. That command opens a serial connection to the Bus Pirate using the documented Baud Rate.
+
+In another terminal window, 
+
 
 ### Header 3
 
