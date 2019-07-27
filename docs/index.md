@@ -15,7 +15,7 @@ I put this together because the other guides for doing this are great, but skipp
 *   (OPTIONAL) A soldering kit, to solder the pin header onto the Proxmark. You don't actually **have** to solder it on, but it's going to make flashing the bootloader and full image a pain because you have to hold the pin header in place and keep it stable. It's _reallllllllllly_ tricky but technically doable.
 *   A Linux distro, preferable Debian Based. I did this on Parrot OS.
 
-# Preparation
+# Preparation: Bus Pirate
 ## Phase 1: Bus Pirate Prep
 
 Hook up that Bus Pirate to your computer. Run "sudo dmesg" to check what port it's on (Mine usually went to /dev/ttyUSB0). If your computer can see the Bus Pirate and assign it to a port, you're in good shape. 
@@ -104,6 +104,22 @@ Use screen /dev/ttyUSB0 115200 to verify
 ```
 
 In the terminal window you ran screen in, run that screen command and verify you get a HiZ prompt. Once you see the prompt, type "i" and check the firmware. If it's 6.0, you're good to go!
+
+# Preparation: Proxmark3 software/OpenOCD
+Run the following commands to grab and build the offocial Proxmark3 Firmware and OpenOCD:
+
+```
+git clone https://github.com/Proxmark/proxmark3.git
+cd proxmark3
+make clean && make all
+apt-get install openocd
+```
+That should be it on the Proxmark3 software side. You now need to figure out what cable to plug into where.
+
+# Preparation: Proxmark3 hardware
+
+Grab your 6-pin header and insert it into the Proxmark. Here's what that should look like:
+
 
 ### Header 3
 
