@@ -133,11 +133,9 @@ Now that everything is set up and ready to go, you now need to figure out what c
 This method will explain how to identify what pin on the Sparkfun Cable connects to what pin on the Bus Pirate. Make sure the black rectangular part of the cable is plugged into the Bus Pirate.
 
 1. Take your multi-meter and touch one of the leads inside a wire on the cable. 
-2. Touch the other lead on one of the pins OUTSIDE the black rectangle on the Bus Pirate, next  too the description of each pin. 
-3.  This is an ordered list following a header.
-
-
-
+2. Touch the other lead on one of the pins OUTSIDE the black rectangle on the Bus Pirate, next to the description of each pin. 
+3. If you hear a "beep" from your multi-meter, you have identified what pin corresponds to the coloured wire you're testing. If you don't hear a beep, apply the lead to a different pin on the Bus Pirate until you hear a beep. It is recommended that you make a note of what colour corresponds to what pin so you can connect your cable to the Proxmark properly.
+4. Repeat until you have identified what colour corresponds to the following pins on the Bus Pirate: CS, MOSI, MISO, CLK, GND, and 3V3.
 
 ## The quick method
 
@@ -153,105 +151,36 @@ If you're using the Sparkfun Cable, the pinout diagram is below. Please note thi
 | GND          | GND | Brown
 | 3V3          | 3V3 | Red
 
-
-### Header 3
-
-```js
-// Javascript code with syntax highlighting.
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
-}
-```
-
-```ruby
-# Ruby code with syntax highlighting
-GitHubPages::Dependencies.gems.each do |gem, version|
-  s.add_dependency(gem, "= #{version}")
-end
-```
-
-#### Header 4
-
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-
-##### Header 5
-
-1.  This is an ordered list following a header.
-2.  This is an ordered list following a header.
-3.  This is an ordered list following a header.
-
-###### Header 6
-
-| head1        | head two          | three |
-|:-------------|:------------------|:------|
-| ok           | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
-
-### There's a horizontal rule below this.
-
-* * *
-
-### Here is an unordered list:
-
-*   Item foo
-*   Item bar
-*   Item baz
-*   Item zip
-
-### And an ordered list:
-
-1.  Item one
-1.  Item two
-1.  Item three
-1.  Item four
-
-### And a nested list:
-
-- level 1 item
-  - level 2 item
-  - level 2 item
-    - level 3 item
-    - level 3 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-
-### Small image
-
-![Octocat](https://github.githubassets.com/images/icons/emoji/octocat.png)
-
-### Large image
-
-![Branching](https://guides.github.com/activities/hello-world/branching.png)
+Here's what it should look like:
+![Wiring](./assets/img/Wiring.jpg)
 
 
-### Definition lists can be used with HTML syntax.
-
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
+Now that you're all wired up, "cd" to the proxmark3 folder and run OpenOCD with the Bus Pirate attached to the PC and the Sparkfun Cable attached to the Proxmark:
 
 ```
-Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
+openocd -f tools/at91sam7s512-buspirate.cfg
 ```
+You should see the following message in the text that is returned from OpenOCD:
 
 ```
-The final element.
+JTAG tap: sam7x.cpu tap/device found: 
 ```
+
+If you **DON'T** see that message, or you see a message like "Error: sam7x.cpu: IR capture error; saw 0x00 not 0x01", then something is not connected properly. During this process, we needed to plug in the Proxmark3's power source as well, but this may not be the case for you and should only be tried as a last-case scenario in case it fries your pins since the Bus Pirate also provides power via the 3V3 pin.
+
+In another terminal window, run the following commands:
+
+```
+telnet localhost 4444
+halt
+flash erase_sector 0 0 15
+flash erase_sector 1 0 15
+flash write_image ./armsrc/obj/fullimage.elf
+flash write_image ./bootrom/obj/bootrom.elf
+```
+
+This will take some time as you are directly flashing a new bootrom and full image onto the Proxmark via a serial connection. If you didn't solder your pin header, you need to make sure you hold the pin header as still and stable as possible, as the flashing process can easily fail otherwise.
+
+Once this is all done, go ahead and quit OpenOCD and Telnet, and disconnect the Bus Pirate and Proxmark.
+
+Plug in the Proxmark into the PC and run "dmesg". If you see the Proxmark being assigned a port, congradulations! You now have a working Proxmark again.
