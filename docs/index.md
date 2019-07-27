@@ -4,6 +4,8 @@ layout: default
 
 In this tutorial, we're going to go through the process of un-bricking a Proxmark3. I did this to an RDV2 that had bricked on me, but the steps can easily be modifed to work with a Pm3 Easy.
 
+I put this together because the other guides for doing this are great, but skipped over a few steps and hoops that you'll need to jump through to get everything working. The Bus Pirate needs to be flashed with a specific firmware capable of supporting the Open On-Chip Debugger (OpenOCD), and the pinout diagrams present in the guides aren't universal, so you'll need to identify what cable to plug into what pin. Not to worry, we'll go over that.
+
 # What you'll need to get started
 
 *   A bricked Proxmark3. If you don't have one that's bricked, go ahead and brick one by flashing the bootloader and unplugging halfway through (**NOTE: Don't actually do this**)
@@ -12,7 +14,8 @@ In this tutorial, we're going to go through the process of un-bricking a Proxmar
 *   A multimeter, to test continuity and identify what cable to plug into which pin on the Proxmark.
 *   (OPTIONAL) A soldering kit, to solder the pin header onto the Proxmark. You don't actually **have** to solder it on, but it's going to make flashing the bootloader and full image a pain because you have to hold the pin header in place and keep it stable. It's _reallllllllllly_ tricky but technically doable.
 
-## Header 2
+# Preparation
+## Phase 1: 
 
 > This is a blockquote following a header.
 >
