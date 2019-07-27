@@ -2,7 +2,7 @@
 layout: default
 ---
 
-In this tutorial, we're going to go through the process of un-bricking a Proxmark3. I did this to an RDV2 that had bricked on me, but the steps can easily be modifed to work with a Pm3 Easy.
+In this tutorial, we're going to go through the process of un-bricking a Proxmark3 using a Debian based Linux distro. I did this to an RDV2 that had bricked on me, but the steps can easily be modifed to work with a Pm3 Easy.
 
 I put this together because the other guides for doing this are great, but skipped over a few steps and hoops that you'll need to jump through to get everything working. The Bus Pirate needs to be flashed with a specific firmware capable of supporting the Open On-Chip Debugger (OpenOCD), and the pinout diagrams present in the guides aren't universal, so you'll need to identify what cable to plug into what pin. Not to worry, we'll go over that.
 
@@ -17,9 +17,11 @@ I put this together because the other guides for doing this are great, but skipp
 # Preparation
 ## Phase 1: Bus Pirate Prep
 
-> This is a blockquote following a header.
->
-> When something is important enough, you do it even if the odds are not in your favor.
+Hook up that Bus Pirate to your computer. Run "sudo dmesg" to check what port it's on (Mine usually went to /dev/ttyUSB0). If your computer can see the Bus Pirate and assign it to a port, you're in good shape. 
+
+Next, we're going to run a diagnostic script to identify what firmware version you're working on. 
+Run ```wget https://raw.githubusercontent.com/DangerousPrototypes/Bus_Pirate/master/scripts/version.pl```
+
 
 ### Header 3
 
