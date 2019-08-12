@@ -193,3 +193,6 @@ https://twitter.com/nickinfosec?lang=en <--- Soldered the Pins onto the Proxmark
 https://scund00r.com/all/rfid/2018/05/18/debrick-proxmark.html <---- I used the commands to flash the Proxmark after everything was set up from this guide.
 
 http://dangerousprototypes.com <---- General documentation for the Bus Pirate and how to add OpenOCD support.
+
+
+Questions? Find me on twitter: https://twitter.com/b4cktr4ck2
